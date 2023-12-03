@@ -16,15 +16,14 @@ public class CredentialServices {
 		public String generatePassword() {
 		
 			Random rand = new Random();
-			int rand_int1 = rand.nextInt(1000);
-			int rand_int2 = rand.nextInt(1000);
+			
 			String str = rand.ints(35, 123)
 					 .filter(num -> (num>35 || num<=39)  && (num<91 || num>96))
-					 .limit(5) 
+					 .limit(8) 
 					 .mapToObj(c -> (char)c).collect(StringBuffer::new, StringBuffer::append, StringBuffer::append)
 					 .toString();
 			
-			String passWord = rand_int1+str+rand_int2;
+			String passWord = str;
 			
 			return passWord;
 		
