@@ -9,6 +9,8 @@ public class DriverClass {
 		Scanner name = new Scanner(System.in);
 		String FirstName, LastName;
 		int DNo;
+		
+		
 		System.out.println("Enter your first name: ");
 		
 		FirstName = name.nextLine();  // Read user input
@@ -21,10 +23,16 @@ public class DriverClass {
 		DNo = name.nextInt();
 		
 		EmployeeInfo info = new EmployeeInfo();
+		
 		CredentialServices credential = new CredentialServices();
+		
 		info.EmployeeName(FirstName, LastName);
-		//info.DeptName(DNo);
-		credential.CreateCredential(FirstName, LastName, DNo);
+		
+		
+		String username = credential.generateEmailAddress(FirstName, LastName, DNo);
+		String password = credential.generatePassword();
+		credential.showCredentials(username, password);
+		
 	
 	
 		
